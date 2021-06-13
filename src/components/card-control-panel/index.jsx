@@ -5,7 +5,6 @@ import {
   Grid,
   IconButton,
   InputLabel,
-  makeStyles,
   MenuItem,
   Select,
 } from "@material-ui/core";
@@ -19,12 +18,6 @@ export default function CardControlPanel({
   setWalk,
   changeSkeleton,
 }) {
-  const useStyles = makeStyles({
-    skeletonSelect: {
-      marginBottom: "18px",
-    },
-  });
-
   const handleChange = (event) => {
     const skeletonName = event.target.value.toLowerCase().split(" ").join("");
     setWalk(false);
@@ -35,10 +28,9 @@ export default function CardControlPanel({
     skeleton.changeAnimation(event.target.value);
   };
 
-  const classes = useStyles();
   return (
-    <Grid xs={3} container item justify="space-around">
-      <Grid xs={12} item className={classes.skeletonSelect}>
+    <Grid sm={9} md={3} container item justify="space-around">
+      <Grid xs={12} item>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Skeleton</InputLabel>
           <Select
@@ -54,7 +46,7 @@ export default function CardControlPanel({
         <Box height={50} width={10} />
       </Grid>
 
-      <Grid xs={6} item className={classes.skeletonRow}>
+      <Grid xs={6} item>
         {animations?.length > 0 && (
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Animations</InputLabel>
@@ -72,7 +64,7 @@ export default function CardControlPanel({
           </FormControl>
         )}
       </Grid>
-      <Grid xs={4} item className={classes.mediaPanel}>
+      <Grid xs={4} item>
         <ButtonGroup
           variant="contained"
           color="primary"

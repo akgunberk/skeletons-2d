@@ -11,7 +11,7 @@ const SpineCard = () => {
   const [skeleton, setSkeleton] = useSpine(canvasRef, setAnimations);
 
   return (
-    <Grid container spacing={6} alignItems="flex-end">
+    <Grid container spacing={6} justify="center" alignItems="center">
       <Grid xs={9} item>
         <div className={styles.card}>
           <canvas
