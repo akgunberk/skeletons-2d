@@ -12,7 +12,7 @@ const SpineCard = () => {
 
   return (
     <Grid container spacing={6} justify="center" alignItems="center">
-      <Grid xs={9} item>
+      <Grid xs={12} sm={9} item>
         <div className={styles.card}>
           <canvas
             className={`${styles.canvas} ${walk && styles.loopAnimation}`}
