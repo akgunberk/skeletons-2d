@@ -1,0 +1,26 @@
+.card {
+  background: #cc8a8a;
+  overflow-x: hidden;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.canvas {
+  width: 60%;
+  height: 50vh;
+}
+
+.loopAnimation {
+  animation: loop 4s linear infinite;
+}
