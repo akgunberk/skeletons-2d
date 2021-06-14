@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimationFactory from "../utils/animation-factory";
 
-const useSpine = (ref, callback) => {
+const useSpine = (ref) => {
   const [spine, setSpine] = useState();
   const [skeleton, setSkeleton] = useState("powerup");
 
@@ -9,7 +9,6 @@ const useSpine = (ref, callback) => {
     const animation = AnimationFactory({
       canvas: ref.current,
       skeleton,
-      callback,
     });
     setSpine(animation);
   }, [skeleton]);

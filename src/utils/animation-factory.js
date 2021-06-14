@@ -1,9 +1,8 @@
 import { spine } from "../spine/spine-canvas";
-import calculateBounds from "./calculateBounds";
-import resizeCanvas from "./resizeCanvas";
+import { calculateBounds, resizeCanvas, PubSub } from "../utils";
 
 // Animation Factory used by useSpine hooks create canvas with skeleten and its animations
-function AnimationFactory({ canvas, skeleton, callback }) {
+function AnimationFactory({ canvas, skeleton }) {
   let skeletonInfo,
     lastFrameTime = Date.now() / 1000;
   const context = canvas.getContext("2d");
@@ -35,7 +34,8 @@ function AnimationFactory({ canvas, skeleton, callback }) {
 
     skeletonInfo = { skeleton, state, bounds, stateData };
     state.addListener({
-      start: () => callback(skeleton.data.animations),
+      start: () =>
+        PubSub.dispatch("ANIMATIONS_LOADED", skeleton.data.animations),
     });
 
     const defaultAnimation = skeleton.data.animations[0].name;

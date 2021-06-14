@@ -1,3 +1,9 @@
+/**
+ * @param  {} {canvas ref parameter
+ * @param  {} context 2d context of canvas
+ * @param  {} bounds bound set for canvas}
+ * @return string
+ */
 export default function resizeCanvas({ canvas, context, bounds }) {
   const [w, h] = [canvas.clientWidth, canvas.clientHeight];
   if (canvas.width !== w || canvas.height !== h) {
